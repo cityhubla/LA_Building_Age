@@ -1,7 +1,7 @@
 ![alt text](https://github.com/cityhubla/LA_Building_Age/blob/master/images/builtla_cover.png)
 # LA_Building_Age
 
-[LIVE DEMO](http://www.cityhub.la/lamap.html)
+[LIVE DEMO](http://cityhubla.github.io/LA_Building_Age/)
 
 HTML to load Map tiles from cityhub server host
 
