@@ -8,50 +8,8 @@
 	<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-	<style type="text/css">
-        
-        .offbutton {
-        background-color: #ff7911;
-        }
-        
-        #y1900 {
-        background:#22ecf0;
-        }
-        #y1910 {
-        background:#19d1fd;
-        }
-        #y1920 {
-        background:#19d1fd;
-        }
-        #y1930 {
-        background:#2c7fdb;
-        }
-        #y1940 {
-        background:#3d52bf;
-        }
-        #y1950 {
-        background:#6539b3;
-        }
-        #y1960 {
-        background:#a032b2;
-        }
-        #y1970 {
-        background:#d124a9;
-        }
-        #y1980 {
-        background:#fd4dab;
-        }
-        #y1990 {
-        background:#fea7d4;
-        }
-        #y2000 {
-        background:#ff7911;
-        }
-
-        
-        
-	</style>
 </head>
+    
 <body>
 	<div id="map"></div>
     <div id="info_mobile"><h1>built:LA</h1><p>// The mobile version does not allow pan or zoom yet, please visit on a desktop for full      version.</p>
@@ -618,7 +576,9 @@ map.on('mousemove', function(e) {
           document.getElementById('builtbox').innerHTML = features[0].properties.address+" was built in "+features[0].properties.YearBuilt;
       });
   });
-        
+
+//Click Functionality
+/*
 map.on('click', function(e) {
       map.featuresAt(e.point, {radius: 5}, function(err, features) {
           alert(features[0].properties.address+" was built in "+features[0].properties.YearBuilt);
@@ -626,7 +586,7 @@ map.on('click', function(e) {
           document.getElementById('builtbox').innerHTML = features[0].properties.address+" was built in "+features[0].properties.YearBuilt;
       });
   });
-
+*/
         
     
         
