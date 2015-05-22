@@ -1,4 +1,4 @@
-![alt text](https://github.com/cityhubla/LA_Building_Age/blob/master/image/cover.jpg)
+![alt text](https://github.com/cityhubla/LA_Building_Age/blob/master/images/builtla_cover.png)
 # LA_Building_Age
 
 [LIVE DEMO](http://www.cityhub.la/lamap.html)
