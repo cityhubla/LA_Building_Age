@@ -4,6 +4,14 @@
 body { margin: 0; padding: 0;}
 #map { position:absolute; top:0; bottom:0; width:100%; }
 
+a:visited{
+color:aqua;
+}
+
+a:link{
+color:dodgerblue;
+}
+
 button {
         position: relative;
         left:0px;    
@@ -20,15 +28,55 @@ button {
 #info_mobile {
 display:none
 }
+
 #info {
         font-family: Sans-Serif;
         position: absolute;
-        top: 18px;
-        left: 80px;
+        top: 20px;
+        left: 20px;
         color: #FFF;
-        background: grey;
-        padding: 10px 25px 25px;
-        width: 20%;
+        width: 570px;
+        height: 110px;
+}
+
+#timeline{
+  position: fixed;
+  top: 105px;
+}
+
+#timeline img {
+float: left;
+}
+
+#icons{
+  position: fixed;
+  top: 20px;
+  left: 580px;
+  width: 55px;
+}
+
+#icons img{
+float:left;
+}
+
+#builtbox {
+  background-color: black;
+  width: 617px;
+  height: 25px;
+  padding-top: 5px;
+  text-align: center;
+}
+
+#aboutbox {
+  display: none;
+  font-family: Sans-Serif;
+  position: fixed;
+  top: 20px;
+  padding-left: 13px;
+  color: #FFF;
+  width: 548px;
+  height: 234px;
+  background-color: black;
 }
 
 #animate_mobile{
@@ -57,40 +105,6 @@ display:none;
         
     .offbutton {
     background-color: #ff7911;
-    }
-
-    #y1900 {
-    background:#22ecf0;
-    }
-    #y1910 {
-    background:#19d1fd;
-    }
-    #y1920 {
-    background:#19d1fd;
-    }
-    #y1930 {
-    background:#2c7fdb;
-    }
-    #y1940 {
-    background:#3d52bf;
-    }
-    #y1950 {
-    background:#6539b3;
-    }
-    #y1960 {
-    background:#a032b2;
-    }
-    #y1970 {
-    background:#d124a9;
-    }
-    #y1980 {
-    background:#fd4dab;
-    }
-    #y1990 {
-    background:#fea7d4;
-    }
-    #y2000 {
-    background:#ff7911;
     }
 
  #divback{

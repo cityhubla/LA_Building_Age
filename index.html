@@ -8,6 +8,9 @@
 	<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.7.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.7.0/mapbox-gl.css' rel='stylesheet' />
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.js"></script>
 </head>
     
 <body>
@@ -15,32 +18,36 @@
     <div id="info_mobile"><h1>built:LA</h1><p>// The mobile version does not allow pan or zoom yet, please visit on a desktop for full      version.</p>
         <div id="animate_mobile"><button onclick='animate2(), animate2()' id='divback'><h2>Click here to animate</h2></button></div> 
     </div>
-    <div id="info"><h1>built:LA</h1>        
-    <div id="infobox"><h2>Building Age // 1890-2008</h2><p>Since 2008, there are over 2.9 million buildings in the county. Each building is shaded according to the time they were built. Building Vector Tiles made with <a href="https://www.mapbox.com/">Mapbox Studio and Mapbox-GL</a> by <a href="http://www.theworks.la/">Omar Ureta</a>, inspired by <a href="http://labratrevenge.com/pdx/#12/45.4554/-122.6531">Portland, Oregon: The Age of a City</a> Terrain and Label Data by <a href="http://www.mapbox.com">Mapbox</a>. <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>. <p>Thanks goes out to <a href="http://maptime.io/">Maptime</a> for opening the doors to amazing cartographic possibilities!!</p>
-</p>
-    <p>Data // Building Outlines: <a href="http://egis3.lacounty.gov/dataportal/2011/04/28/countywide-building-outlines/">LA County GIS Data Portal</a>, <a href="http://gis.ats.ucla.edu/Mapshare/">Age Data: UCLA Mapshare</a></p>    
-    <p>Color Legend // Click through the decades</p>
-    <button onclick='changestyle("y1900",this)' id='y1900' >1890-1909</button>
-    <button onclick='changestyle("y1910",this)' id='y1910' >1910-1919</button>
-    <button onclick='changestyle("y1920",this)' id='y1920' >1920-1929</button>
-    <button onclick='changestyle("y1930",this)' id='y1930' >1930-1939</button>
-    <button onclick='changestyle("y1940",this)' id='y1940' >1940-1949</button>
-    <button onclick='changestyle("y1950",this)' id='y1950' >1950-1959</button>
-    <button onclick='changestyle("y1960",this)' id='y1960' >1960-1969</button>
-    <button onclick='changestyle("y1970",this)' id='y1970' >1970-1979</button>
-    <button onclick='changestyle("y1980",this)' id='y1980' >1980-1989</button>
-    <button onclick='changestyle("y1990",this)' id='y1990' >1990-1999</button>
-    <button onclick='changestyle("y2000",this)' id='y2000' >2000-2008</button>
-    <button  id='ynodata' style="background: #d7d4d4";>No Data</button>
-    <button onclick='changestyle("divback",this)' id='divback'>Change Background Color</button>
-    <button onclick='animate2(), animate2()' id='divback'>Animate</button>    
+    <div id="info">
+        <img src="images/builtla_logo.png">
+        <div id="timeline">
+            <img src="images/time1909.png" onclick='changestyle("y1900",this)' id="y1909">
+            <img src="images/time1910.png" onclick='changestyle("y1910",this)' id='y1910'>
+            <img src="images/time1920.png" onclick='changestyle("y1920",this)' id='y1920'>
+            <img src="images/time1930.png" onclick='changestyle("y1930",this)' id='y1930'>
+            <img src="images/time1940.png" onclick='changestyle("y1940",this)' id='y1940'>
+            <img src="images/time1950.png" onclick='changestyle("y1950",this)' id='y1950'>
+            <img src="images/time1960.png" onclick='changestyle("y1960",this)' id='y1960'>
+            <img src="images/time1970.png" onclick='changestyle("y1970",this)' id='y1970'>
+            <img src="images/time1980.png" onclick='changestyle("y1980",this)' id='y1980'>
+            <img src="images/time1990.png" onclick='changestyle("y1990",this)' id='y1990'>
+            <img src="images/time2000.png" onclick='changestyle("y2000",this)' id='y2000'>
+        </div>
+        <div id="icons">
+            <img src="images/about.png" onclick='aboutfunc()' id="abouticon">
+            <img src="images/animate.png" onclick='animate2(),animate2()' id="divback">
+        </div>
+        <div id="builtbox"></div> 
+        <div id="infobox"></div>
         
-    <p>Click or hover over a building</p>
-    <div id="builtbox"></div>    
-    </div>
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.7.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.7.0/mapbox-gl.css' rel='stylesheet' />
-	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.js"></script>
+        <div id="aboutbox">
+<p>Building Vector Tiles made with <a href="https://www.mapbox.com/">Mapbox Studio and Mapbox-GL</a> by <br><a href="http://www.theworks.la/">Omar Ureta</a>, inspired by <a href="http://labratrevenge.com/pdx/#12/45.4554/-122.6531">Portland, Oregon: The Age of a City</a> Terrain and Label Data by <a href="http://www.mapbox.com">Mapbox</a>. <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>. <p>Thanks goes out to <a href="http://maptime.io/">Maptime</a> for opening the doors to amazing cartographic possibilities!!</p>
+</p>
+<p>Code and be found on <a href="https://github.com/cityhubla/LA_Building_Age">Github</a></p>        
+<p>Data // Building Outlines: <a href="http://egis3.lacounty.gov/dataportal/2011/04/28/countywide-building-outlines/">LA County GIS Data Portal</a>, Age Attributes <a href="http://gis.ats.ucla.edu/Mapshare/">LA County Assessor Local Roll</a> (Note: There were buildings that had no data on the time they were built. They are shown, only greyed out.)</p>    
+        </div>
+
+
 	<script>
             
 
@@ -61,8 +68,8 @@
             var tilesetcities= "http://104.236.162.144:8000/cities/";
             var bkbackground="#4f4d4d";
             
+            //Change Button Color
             function changestyle(var1, btn){
-                console.log(btn);
                 var year=var1;
                 if (map.hasClass(year)) {
                     $(btn).removeAttr('style');
@@ -70,9 +77,16 @@
                     
                 } else {
                     map.addClass(year);
-                    $(btn).css('background-color', '#4f4d4d');
+                    $(btn).css('opacity', '.5');
                     }
             } 
+            
+            //Show About Information
+            function aboutfunc(){
+            $("#aboutbox").toggle();
+            }; 
+        
+        
 
             
 			var mapStyle = {
@@ -601,7 +615,7 @@ function animate2(){
                 tx=tx+1000;
                 } else {
                 map.addClass(yearArray[i]);
-                $("#"+yearArray[i]).css('background-color', '#4f4d4d');
+                $("#"+yearArray[i]).css('opacity', '.5');
                 }
                 };
     };
