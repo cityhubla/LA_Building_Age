@@ -7,7 +7,7 @@ HTML to load Map tiles from cityhub server host
 
 Since 2008, there are over 2.9 million buildings in Los Angeles County. 
 Each building is shaded according to the time they were built. 
-Map made with Mapbox Studio and MapboxGL by Omar Ureta, inspired by Portland, Oregon: The Age of a City
+Map made with Mapbox Studio and MapboxGL by [Omar Ureta](http://www.theworks.la), inspired by Portland, Oregon: The Age of a City
 
 Notes
 
