@@ -3,7 +3,7 @@
 
 [LIVE DEMO](http://cityhubla.github.io/LA_Building_Age/)
 
-HTML to load Map tiles from cityhub server host
+HTML to load Map tiles from cityhub server host // Breakdown on the processes involved in developing map will be up soon.
 
 Since 2008, there are over 2.9 million buildings in Los Angeles County. 
 Each building is shaded according to the time they were built. 
