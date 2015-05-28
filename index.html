@@ -63,6 +63,7 @@
             //Server Address will change every month
 			var mapDiv = 'map';
             var tileset0000= "http://104.236.162.144:8000/nodata/";
+            var tileset1890= "http://104.236.162.144:8000/1890-1899/";
             var tileset1900= "http://104.236.162.144:8000/1900-1909/";
             var tileset1910= "http://104.236.162.144:8000/1910-1919/";
             var tileset1920= "http://104.236.162.144:8000/1920-1929/";
@@ -105,6 +106,12 @@
                     "type": "vector",
                     "url": "mapbox://mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v6"
                     },  
+				    "1890": {
+				      "type": "vector",
+				      "url": "" + tileset1890 + "meta.json?vectortileflag=true",
+				      "minzoom": 10,
+				      "maxzoom": 18
+				    },  
 				    "1910": {
 				      "type": "vector",
 				      "url": "" + tileset1910 + "meta.json?vectortileflag=true",
@@ -340,6 +347,21 @@
                               "line-opacity": .5
                                 }
                         },
+                      {
+                        "id": "1890",
+					    "source": "1890",
+					    "source-layer": "1800-1899",
+					    "paint": {
+					      "fill-color": "#22ecf0",
+                            "fill-opacity":1
+					    },
+                        "paint.y1900": {
+					      "fill-color": "#d7d4d4",
+                            "fill-opacity":.4
+					    },
+					    "type": "fill",
+                        "interactive":true
+					  },
                       {
                         "id": "1900",
 					    "source": "1900",
