@@ -17,6 +17,5 @@ Notes
 From these sources:
 
   * LARAIC2 and LA County Assessor 
-  * 
  
 Using this map will ask more questions about LA's development and it should continue to evolve and explore these inquiries. Maps should be [transformative agents](http://www.thepolisblog.org/2010/03/mapping-as-transformative-agent-in.html)
