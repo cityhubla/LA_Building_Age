@@ -13,7 +13,7 @@ Notes
 
  * Grey areas indicate no data on year building was built.
  * Building outline data shows what existed in 2008, buildings during the century may have been replaced and is not shown with this map.
- * Due to the tremendous size of the two datasets, Almost 2 Gigabytes!! A sole i7 took many hours crunching the data to magically display what you see, there will be inaccuracies but this map does help paint a good picture of how Los Angeles has grown through the animation. For example the parcel data I worked with was made in 2011, the building where I live has no "year built," but the recently published 2014 parcel dataset now has it at 1914, which means that many buildings of this current map do really have dates. Future updates to this map will reflect these kinds of descrepancies.
+ * Due to the tremendous size of the two datasets, Almost 2 Gigabytes!! A sole i7 took many hours crunching the data to magically display what you see, there will be inaccuracies but this map does help paint a good picture of how Los Angeles has grown through the animation. For example the parcel data I worked with was made in 2011, the building where I live has no "year built," but the recently published 2014 parcel dataset now has it at 1914, which means that many buildings in this current map do really have dates. Future updates to this map will reflect these kinds of descrepancies.
  * <b>Please contact me</b> if you intend to use the map as a baselayer for other work. I will be changing the access keys and IP frequently. The intent of posting the code on github is for mappers to understand how this got built with mapbox-gl and the new styling of the features.
 
 From these sources:
