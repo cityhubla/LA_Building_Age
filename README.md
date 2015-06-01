@@ -10,7 +10,7 @@ Each building is shaded according to the time they were built.
 Map made with Mapbox Studio and MapboxGL by [Omar Ureta](http://www.theworks.la), inspired by Portland, Oregon: The Age of a City
 
 ###Method
-*The display of the building outlines with their age was done by linking the two datasets (LARIAC and Local Roll) by their APN (Assessor's Parcel Number).
+* The display of the building outlines with their age was done by linking the two datasets (LARIAC and Local Roll) by their APN (Assessor's Parcel Number).
 
 ###Notes
  * Grey areas indicate no data on year building was built.
