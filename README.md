@@ -5,15 +5,16 @@
 
 HTML to load Map tiles from cityhub server host // Breakdown on the processes involved in developing map will be up soon.
 
-Since 2008, there are over 2.9 million buildings in Los Angeles County. 
+Since 2008, there are over 2.9 million buildings in Los Angeles County. This visualization gives an overall look at the age of the building stock as of 2008.
 Each building is shaded according to the time they were built. 
 Map made with Mapbox Studio and MapboxGL by [Omar Ureta](http://www.theworks.la), inspired by Portland, Oregon: The Age of a City
 
 ###Method
-* The display of the building outlines with their age was done by linking the two datasets (LARIAC and Local Roll) by their APN (Assessor's Parcel Number).
+* The display of the building outlines with their age was done by linking the two datasets (LARIAC and Local Roll) by their APN (Assessor's Parcel Number). Additionally the street number, name and city were linked through the two datasets.
 
 ###Notes
  * Grey areas indicate no data on year building was built.
+ * The addresses shown are according to what the 2011 LA County Assessor Roll Data had to the corresponding Parcel Number. Please check with the [LA County APN Property Search](http://maps.assessor.lacounty.gov/GVH_2_2/Index.html?configBase=http://maps.assessor.lacounty.gov/Geocortex/Essentials/REST/sites/PAIS/viewers/PAIS_hv/virtualdirectory/Resources/Config/Default) to verify your address and building age.
  * <b>Please contact me</b> if you intend to use the map as a baselayer for other work. I will be changing the access keys and IP frequently. The intent of posting the code on github is for mappers to understand how this got built with mapbox-gl and the new styling of the features.
  
 ###Known Inaccuracies
