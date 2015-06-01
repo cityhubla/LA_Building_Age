@@ -21,3 +21,5 @@ From these sources:
   * LARAIC2 and the 2011 LA County Assessor Parcel Local Roll
  
 Using this map will ask more questions about LA's development and it should continue to evolve and explore these inquiries. Maps should be [transformative agents](http://www.thepolisblog.org/2010/03/mapping-as-transformative-agent-in.html)
+
+###Help improve this map! The building outline data is from 2008, there is a [2014](http://egis3.lacounty.gov/dataportal/2014/10/16/countywide-building-outlines-2014/) set from the county that is not public. An effort is underway to import these buildings to [OpenStreetMap](https://github.com/osmlab/labuildings)
