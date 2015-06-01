@@ -22,4 +22,4 @@ From these sources:
  
 Using this map will ask more questions about LA's development and it should continue to evolve and explore these inquiries. Maps should be [transformative agents](http://www.thepolisblog.org/2010/03/mapping-as-transformative-agent-in.html)
 
-###Help improve this map! The building outline data is from 2008, there is a [2014](http://egis3.lacounty.gov/dataportal/2014/10/16/countywide-building-outlines-2014/) set from the county that is not public. An effort is underway to import the 2008 buildings and hopefully the 2014 set to [OpenStreetMap](https://github.com/osmlab/labuildings).
+###Help improve this map! The building outline data is from 2008, there is a [2014](http://egis3.lacounty.gov/dataportal/2014/10/16/countywide-building-outlines-2014/) set from the county that is not public. An effort is underway to prepare the import of the 2008 buildings and hopefully the 2014 set to [OpenStreetMap](https://github.com/osmlab/labuildings).
