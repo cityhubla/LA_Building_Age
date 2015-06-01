@@ -9,17 +9,24 @@ Since 2008, there are over 2.9 million buildings in Los Angeles County.
 Each building is shaded according to the time they were built. 
 Map made with Mapbox Studio and MapboxGL by [Omar Ureta](http://www.theworks.la), inspired by Portland, Oregon: The Age of a City
 
+Method
+*The display of the building outlines with their age was done by linking the two datasets (LARIAC and Local Roll) by their APN (Assessor's Parcel Number).
+
 Notes
 
  * Grey areas indicate no data on year building was built.
- * Building outline data shows what existed in 2008, buildings during the century may have been replaced and is not shown with this map.
- * Due to the tremendous size of the two datasets, Almost 2 Gigabytes!! A sole i7 took many hours crunching the data to magically display what you see, there will be inaccuracies but this map does help paint a good picture of how Los Angeles has grown through the animation. For example the parcel data I worked with was made in 2011, the building where I live has no "year built," but the recently published 2014 parcel dataset now has it at 1914, which means that many buildings in this current map do really have dates. Future updates to this map will reflect these kinds of descrepancies.
  * <b>Please contact me</b> if you intend to use the map as a baselayer for other work. I will be changing the access keys and IP frequently. The intent of posting the code on github is for mappers to understand how this got built with mapbox-gl and the new styling of the features.
+ 
+Known Inaccuracies
+* Building outline data shows what existed in 2008, buildings during the century may have been replaced and is not shown with this map.
+* Parcels that have more than one building may contain dates of one of the buildings as the local roll contained only one.
+* There are missing dates on buildings even though their date is known through the LA County APN Property Search. The data worked with was from the 2011 parcel local roll, a look at the now released 2014 local roll through the County's Open Data portal shows that many have been updated with dates. My apartment for example did not have a date on this current age map. Updates will reflect the updated set.
 
 From these sources:
 
   * LARAIC2 and the 2011 LA County Assessor Parcel Local Roll
+  * The disclaimer from using these resources are as follows: The data available on this website, including Geographic Information Systems (“GIS”) data, maps, tables, numbers, graphics, and text (hereinafter collectively referred to as the “Information”), is provided AS IS and for you to view, access, copy, distribute and otherwise use the Information at your own risk. The County of Los Angeles, its departments and its affiliated entities, elected and appointed officers, officials, employees and agents (hereinafter referred to as the “County”) make no representation or warranty of any kind regarding this website or Information, explicit or implied.
  
 Using this map will ask more questions about LA's development and it should continue to evolve and explore these inquiries. Maps should be [transformative agents](http://www.thepolisblog.org/2010/03/mapping-as-transformative-agent-in.html)
 
-###Help improve this map! The building outline data is from 2008, there is a [2014](http://egis3.lacounty.gov/dataportal/2014/10/16/countywide-building-outlines-2014/) set from the county that is not public. An effort is underway to prepare the import of the 2008 buildings and hopefully the 2014 set to [OpenStreetMap](https://github.com/osmlab/labuildings).
+####Help improve this map! The building outline data is from 2008, there is a [2014](http://egis3.lacounty.gov/dataportal/2014/10/16/countywide-building-outlines-2014/) set from the county that is not public. An effort is underway to prepare the import of the 2008 buildings and hopefully the 2014 set to [OpenStreetMap](https://github.com/osmlab/labuildings).
