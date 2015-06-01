@@ -22,7 +22,7 @@ Known Inaccuracies
 * Parcels that have more than one building may contain dates of one of the buildings as the local roll contained only one.
 * There are missing dates on buildings even though their date is known through the LA County APN Property Search. The data worked with was from the 2011 parcel local roll, a look at the now released 2014 local roll through the County's Open Data portal shows that many have been updated with dates. My apartment for example did not have a date on this current age map. Updates will reflect the updated set.
 * There is a 3 (three) year gap between the Local Roll data (2011) and the Building Outlines (2008). Properties that have new buildings since 2008 will still have the building outline from 2008. The most recent building on the Local Roll was built in 2009 bringing the gap close to 1 year. The age map will be updated to remove this gap.
-* ####Please report any other inaccuracies in the Issues section of this repo. Many of these can be brought to the attention of LA County and help them improve their datasets.
+* <b>Please report any other inaccuracies in the Issues section of this repo. Many of these can be brought to the attention of LA County and help them improve their datasets.</b>
 
 From these sources:
 
