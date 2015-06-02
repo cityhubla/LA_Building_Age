@@ -112,25 +112,47 @@ background:#000;
 }
 
 @media (max-width:800px) {
-#map  {
-    top:70px;
-    }
+ 
 #info {
 display:none;
-}    
+}
+
+#icons{
+  position: fixed;
+  top: 0px;
+  left: 221px;
+  width:100%;    
+}
+    
+#icons img{
+  float: left;
+  width: 50px;
+}     
+    
 #info_mobile {
-	/* width:100%; */
     display:block;
-    width:100%;
 	height:70px;
     text-shadow:none;
     left:0px;
     top:0px;  
 	position: absolute;
     padding: 0px;
-    background: grey;
+    background: #231f20;
     color: #FFF;
     }
+#aboutboxmobile {  
+  display:none;
+  font-family: Sans-Serif;
+  position: fixed;
+  top: 70px;
+  padding-left: 13px;
+  color: #FFF;
+  width: 80%;
+  height: 80%;
+  background-color: black;
+  overflow: scroll;
+}
+    
 #infobox{
     display:none;
     }
@@ -149,5 +171,4 @@ button {
 #divback{
     background:#22ecf0;
     }
-    
 }
