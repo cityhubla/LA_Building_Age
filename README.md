@@ -26,7 +26,8 @@ Map made with Mapbox Studio and MapboxGL by [Omar Ureta](http://www.theworks.la)
 
 ###From these sources:
 
-  * LARAIC2 and the 2011 LA County Assessor Parcel Local Roll
+  * Building Outline Data: [Los Angeles County GIS Data Portal LARAIC2](http://egis3.lacounty.gov/dataportal/2011/04/28/countywide-building-outlines/) 
+  * Age attributes: [2011 LA County Assessor Parcel Local Roll](http://gis.ats.ucla.edu/Mapshare/)
   * The disclaimer from using these resources are as follows: The data available on this website, including Geographic Information Systems (“GIS”) data, maps, tables, numbers, graphics, and text (hereinafter collectively referred to as the “Information”), is provided AS IS and for you to view, access, copy, distribute and otherwise use the Information at your own risk. The County of Los Angeles, its departments and its affiliated entities, elected and appointed officers, officials, employees and agents (hereinafter referred to as the “County”) make no representation or warranty of any kind regarding this website or Information, explicit or implied.
  
 Using this map will ask more questions about LA's development and it should continue to evolve and explore these inquiries. Maps should be [transformative agents](http://www.thepolisblog.org/2010/03/mapping-as-transformative-agent-in.html)
