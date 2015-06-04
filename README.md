@@ -13,7 +13,7 @@ Map made with Mapbox Studio and MapboxGL by [Omar Ureta](http://www.theworks.la)
 * The display of the building outlines with their age was done by linking the two datasets (LARIAC and Local Roll) by their APN (Assessor's Parcel Number). Additionally the street number, name and city were linked through the two datasets.
 
 ###Future Updates
-* Map will be updated to the 2014 Local Roll made available on the [LA County Open Data Portal](https://data.lacounty.gov/)
+* Map will be updated to the 2014 Local Roll made available on the [LA County GIS Data Portal](http://egis3.lacounty.gov/dataportal/2015/03/10/assessor-parcel/)
 * A search bar will be added to find specific addresses
 
 ###Notes
