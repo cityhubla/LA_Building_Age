@@ -12,6 +12,10 @@ Map made with Mapbox Studio and MapboxGL by [Omar Ureta](http://www.theworks.la)
 ###Method
 * The display of the building outlines with their age was done by linking the two datasets (LARIAC and Local Roll) by their APN (Assessor's Parcel Number). Additionally the street number, name and city were linked through the two datasets.
 
+###Future Updates
+* Map will be updated to the 2014 Local Roll made available on the [LA County Open Data Portal](https://data.lacounty.gov/)
+* A search bar will be added to find specific addresses
+
 ###Notes
  * Grey areas indicate no data on year building was built.
  * The addresses shown are according to what the 2011 LA County Assessor Roll Data had to the corresponding Parcel Number. Please check with the [LA County APN Property Search](http://maps.assessor.lacounty.gov/GVH_2_2/Index.html?configBase=http://maps.assessor.lacounty.gov/Geocortex/Essentials/REST/sites/PAIS/viewers/PAIS_hv/virtualdirectory/Resources/Config/Default) to get a more accurate view of your property.
