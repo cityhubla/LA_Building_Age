@@ -3,7 +3,7 @@
 
 [LIVE DEMO](http://cityhubla.github.io/LA_Building_Age/)
 
-<b>This map was made to explore the potential uses of opensource mapping tools like QGIS, Mapbox, and Leaflet to be used as iterative tools to to reframe the issues in Land Use, Planning and Public Policy.</b>
+<b>This map was made to explore the potential uses of opensource mapping tools like QGIS, Mapbox, and Leaflet to be used as iterative tools to reframe the issues in Land Use, Planning and Public Policy.</b>
 
 HTML to load Map tiles from cityhub server host // Breakdown on the processes involved in developing map will be up soon.
 
