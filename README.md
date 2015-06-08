@@ -17,6 +17,7 @@ Map made with Mapbox Studio and MapboxGL by [Omar Ureta](http://www.theworks.la)
 ###Future Updates
 * Map will be updated to the 2014 Local Roll made available on the [LA County GIS Data Portal](http://egis3.lacounty.gov/dataportal/2015/03/10/assessor-parcel/)
 * A search bar will be added to find specific addresses
+* Building Uses! The data behind this map also contains the use of every building, (single family homes, multifamily housing, retail, industrial warehouse, schools)
 
 ###Notes
  * Grey areas indicate no data on year building was built.
