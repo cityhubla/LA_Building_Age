@@ -15,7 +15,7 @@ Map made with Mapbox Studio and MapboxGL by [Omar Ureta](http://www.theworks.la)
 * The display of the building outlines with their age was done by linking the two datasets (LARIAC and Local Roll) by their APN (Assessor's Parcel Number). Additionally the street number, name and city were linked through the two datasets.
 
 ###Updates
-7.2.2015 // 2014 Vectortile set made, most buildings now have data on years built, government buildings still null. [Working demo](http://cityhubla.github.io/LA_Building_Age/index_2014.html) here. Data discrepancies are linking 2008 building outlines with 2014 parcel data. This 6 year gap between the two will not show buildings new and demoed between 2009 and 2014. Explorations in styling the demoed buildings are being considered. Other issues include missing buildings with no data.
+7.2.2015 // 2014 vector tiles made using Mapbox Studio, most buildings now have data on years built, government buildings still null while some buildings with no data have disappeared altogether. [Working demo](http://cityhubla.github.io/LA_Building_Age/index_2014.html) here. Data discrepancies are linking 2008 building outlines with 2014 parcel data. This 6 year gap between the two will not show buildings new and demoed between 2009 and 2014. Explorations in styling the demoed buildings are being considered. 
 
 7.2.2015 // [MapbogGL.js](https://github.com/mapbox/mapbox-gl-js) has been updated to version 0.8.1, allowing mobile touch command. [Working demo](http://cityhubla.github.io/LA_Building_Age/indexgl_touch.html) here.
 
