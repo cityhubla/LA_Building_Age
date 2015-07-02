@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Age of Los Angeles</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css"/>
+	<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic' rel='stylesheet' type='text/css'>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.8.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.8.1/mapbox-gl.css' rel='stylesheet' />
+	<script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mustache.js/0.8.1/mustache.js"></script>
+</head>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-63392200-1', 'auto');
+  ga('send', 'pageview');
+
+</script>    
+<body>
+	<div id="map"></div>
+    <div id="info_mobile"><img src="images/builtla_mobile.png">
+        <div id="icons">
+            <img src="images/about.png" onclick='aboutfunc("#aboutboxmobile")' id="abouticon">
+            <img src="images/animate.png" onclick='animate2(),animate2()' id="divback">
+        </div>   
+<div id="aboutboxmobile">
+<h3>The mobile version does not allow pan or zoom yet, please use a desktop for full use</h3>
+<p>Built:LA developed by <a href="http://www.theworks.la/">Omar Ureta</a> <a href="https://www.linkedin.com/pub/omar-ureta/55/95a/871"> (Linkedin)</a> of the Urban Policy Collective @ Roschen Van Cleve Architects, founded by Bill Roschen, FAIA and Christi Van Cleve, AIA. Made with <a href="https://www.mapbox.com/">Mapbox Studio and Mapbox-GL</a>, inspired by <a href="http://labratrevenge.com/pdx/#12/45.4554/-122.6531">Portland, Oregon: The Age of a City</a> Terrain and Label Data by <a href="http://www.mapbox.com">Mapbox</a>. <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>. <p>Thanks goes out to <a href="http://maptime.io/">Maptime</a> for opening the doors to amazing cartographic possibilities!!</p>
+</p>
+<p>Code and map research can be found on <a href="https://github.com/cityhubla/LA_Building_Age">Github</a></p>          
+    </div>
+    </div>
+    <div id="info">
+        <img src="images/builtla_logo.png">
+        <div id="timeline">
+            <img src="images/time1909.png" onclick='changestyle("y1900",this)' id="y1909">
+            <img src="images/time1910.png" onclick='changestyle("y1910",this)' id='y1910'>
+            <img src="images/time1920.png" onclick='changestyle("y1920",this)' id='y1920'>
+            <img src="images/time1930.png" onclick='changestyle("y1930",this)' id='y1930'>
+            <img src="images/time1940.png" onclick='changestyle("y1940",this)' id='y1940'>
+            <img src="images/time1950.png" onclick='changestyle("y1950",this)' id='y1950'>
+            <img src="images/time1960.png" onclick='changestyle("y1960",this)' id='y1960'>
+            <img src="images/time1970.png" onclick='changestyle("y1970",this)' id='y1970'>
+            <img src="images/time1980.png" onclick='changestyle("y1980",this)' id='y1980'>
+            <img src="images/time1990.png" onclick='changestyle("y1990",this)' id='y1990'>
+            <img src="images/time2000.png" onclick='changestyle("y2000",this)' id='y2000'>
+        </div>
+        <div id="icons">
+            <img src="images/about.png" onclick='aboutfunc("#aboutbox")' id="abouticon">
+            <img src="images/animate.png" onclick='animate2(),animate2()' id="divback">
+        </div>
+        <div id="builtbox"></div> 
+        <div id="infobox"></div>
+        
+        <div id="aboutbox">
+            <p>Built:LA developed by <a href="http://www.theworks.la/">Omar Ureta</a> <a href="https://www.linkedin.com/pub/omar-ureta/55/95a/871"> (Linkedin)</a> of the <a href="http://www.rvca.org">Urban Policy Collective @ Roschen Van Cleve Architects</a>, founded by Bill Roschen, FAIA and Christi Van Cleve, AIA. Made with <a href="https://www.mapbox.com/">Mapbox Studio and Mapbox-GL</a>, inspired by <a href="http://labratrevenge.com/pdx/#12/45.4554/-122.6531">Portland, Oregon: The Age of a City</a> Terrain and Label Data by <a href="http://www.mapbox.com">Mapbox</a>. <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>. <p>Thanks goes out to <a href="http://maptime.io/">Maptime</a> for opening the doors to amazing cartographic possibilities!!</p>
+</p>
+<p>Code and map update logs can be found on <a href="https://github.com/cityhubla/LA_Building_Age">Github</a></p>        
+<p>Data // Building Outlines: <a href="http://egis3.lacounty.gov/dataportal/2011/04/28/countywide-building-outlines/">LA County GIS Data Portal</a>, Age Attributes <a href="http://gis.ats.ucla.edu/Mapshare/">LA County Assessor Local Roll</a> (Note: There were buildings that had no data on the time they were built. They are shown, only greyed out.)</p><p>This map uses WEBGL, which is optimized for Chrome and Firefox, Safari users need to enable <a href="https://discussions.apple.com/thread/3300585?start=0">WEBGL</a></p>    
+    </div>
+    </div>
+
+
+	<script>
+            
+
+            //Server Address will change every month
+			var mapDiv = 'map';
+            var tileset0000= "http://104.236.162.144:8000/nodata/";
+            var tileset1890= "http://104.236.162.144:8000/1890-1899/";
+            var tileset1900= "http://104.236.162.144:8000/1900-1909/";
+            var tileset1910= "http://104.236.162.144:8000/1910-1919/";
+            var tileset1920= "http://104.236.162.144:8000/1920-1929/";
+            var tileset1930= "http://104.236.162.144:8000/1930-1939/";
+            var tileset1940= "http://104.236.162.144:8000/1940-1949/";
+            var tileset1950= "http://104.236.162.144:8000/1950-1959/";
+            var tileset1960= "http://104.236.162.144:8000/1960-1969/";
+            var tileset1970= "http://104.236.162.144:8000/1970-1979/";
+            var tileset1980= "http://104.236.162.144:8000/1980-1989/";
+            var tileset1990= "http://104.236.162.144:8000/1990-1999/";
+			var tileset2000= "http://104.236.162.144:8000/2000-2009/";
+            var tilesetcities= "http://104.236.162.144:8000/cities/";
+            var bkbackground="#4f4d4d";
+            
+            //Change Button Color
+            function changestyle(var1, btn){
+                var year=var1;
+                if (map.hasClass(year)) {
+                    $(btn).removeAttr('style');
+                    map.removeClass(year);
+                    
+                } else {
+                    map.addClass(year);
+                    $(btn).css('opacity', '.5');
+                    }
+            } 
+            
+            //Show About Information
+            function aboutfunc(box){
+            $(box).toggle();
+            }; 
+        
+        
+
+            
+			var mapStyle = {
+				  "version": 7,
+				  "sources": {
+                    "mapbox": {
+                    "type": "vector",
+                    "url": "mapbox://mapbox.mapbox-terrain-v2,mapbox.mapbox-streets-v6"
+                    },  
+				    "1890": {
+				      "type": "vector",
+				      "url": "" + tileset1890 + "meta.json?vectortileflag=true"
+				    },  
+				    "1910": {
+				      "type": "vector",
+				      "url": "" + tileset1910 + "meta.json?vectortileflag=true"
+				    },
+                    "1920": {
+				      "type": "vector",
+				      "url": "" + tileset1920 + "meta.json?vectortileflag=true"
+				    },
+                    "1930": {
+				      "type": "vector",
+				      "url": "" + tileset1930 + "meta.json?vectortileflag=true"
+				    },
+                    "1940": {
+				      "type": "vector",
+				      "url": "" + tileset1940 + "meta.json?vectortileflag=true"
+				    },
+                     "1950": {
+				      "type": "vector",
+				      "url": "" + tileset1950 + "meta.json?vectortileflag=true"
+				    },  
+                    "1960": {
+				      "type": "vector",
+				      "url": "" + tileset1960 + "meta.json?vectortileflag=true"
+				    },
+                    "1970": {
+				      "type": "vector",
+				      "url": "" + tileset1970 + "meta.json?vectortileflag=true"
+				    },
+                    "1980": {
+				      "type": "vector",
+				      "url": "" + tileset1980 + "meta.json?vectortileflag=true"
+				    },
+                    "1990": {
+				      "type": "vector",
+				      "url": "" + tileset1990 + "meta.json?vectortileflag=true"
+				    },
+                    "2000": {
+				      "type": "vector",
+				      "url": "" + tileset2000 + "meta.json?vectortileflag=true"
+				    },
+                    "NODATE": {
+				      "type": "vector",
+				      "url": "" + tileset0000 + "meta.json?vectortileflag=true"
+				    },                    
+                      "1900": {
+				      "type": "vector",
+				      "url": "" + tileset1900 + "meta.json?vectortileflag=true"
+				    },  
+                    "lacity": {
+				      "type": "vector",
+				      "url": "" + tilesetcities + "meta.json?vectortileflag=true"
+				    },  
+                       "stamen": {
+                        "type": "raster",
+                        "tiles": ["https://stamen-tiles.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png"],
+                        "tileSize": 256
+                    }          
+				  },
+                    "sprite": "https://www.mapbox.com/mapbox-gl-styles/sprites/outdoors",
+                    "glyphs": "mapbox://fontstack/{fontstack}/{range}.pbf",
+                    "layers": [
+					  {
+                        "id": "background",
+                        "type": "background",
+                        "paint": {
+                                "background-color": "#000"},
+                        "paint.divback":  {
+                                "background-color": "#FFF"}
+                        },
+                      /*{
+                        "id": "stamentiles",
+                        "type": "raster",
+                        "source": "stamen",
+                       "paint": {
+					      "raster-opacity": .25    
+                       }
+                        },
+                      {
+                        "id": "cities2", 
+					    "source": "lacity",
+					    "source-layer": "cities",
+					    "paint": {
+					      "line-color": "#FFF",
+                        "line-width": '2',
+                        "line-opacity": '.25'
+					    },
+					    "type": "line",
+                        "interactive":false
+                        },
+                        */
+                        {
+                        "id": "hillshade_highlight_bright",
+                        "type": "fill",
+                        "source": "mapbox",
+                        "source-layer": "hillshade",
+                        "filter": ["==", "level", 94],
+                        "paint": {
+                          "fill-color": "#ffd",
+                          "fill-opacity": {
+                            "stops": [[15, 0.15], [17, 0.05]]
+                          }
+                        },
+                        "paint.night": {
+                          "fill-color": "#fdfdad",
+                          "fill-opacity": {
+                            "stops": [[15, 0.25], [17, 0.05]]
+                          }
+                        }
+                      }, {
+                        "id": "hillshade_highlight_med",
+                        "type": "fill",
+                        "source": "mapbox",
+                        "source-layer": "hillshade",
+                        "filter": ["==", "level", 90],
+                        "paint": {
+                          "fill-color": "#ffd",
+                          "fill-opacity": {
+                            "stops": [[15, 0.15], [17, 0.05]]
+                          }
+                        },
+                        "paint.night": {
+                          "fill-color": "#fdfdad",
+                          "fill-opacity": {
+                            "stops": [[15, 0.25], [17, 0.05]]
+                          }
+                        }
+                      }, {
+                        "id": "hillshade_shadow_faint",
+                        "type": "fill",
+                        "source": "mapbox",
+                        "source-layer": "hillshade",
+                        "filter": ["==", "level", 89],
+                        "paint": {
+                          "fill-color": "#216",
+                          "fill-opacity": {
+                            "stops": [[14, 0.06], [17, 0.01]]
+                          }
+                        },
+                        "paint.night": {
+                          "fill-color": "#216",
+                          "fill-opacity": {
+                            "stops": [[6, 0.15], [13, 0.2], [17, 0.01]]
+                          }
+                        }
+                      }, {
+                        "id": "hillshade_shadow_med",
+                        "type": "fill",
+                        "source": "mapbox",
+                        "source-layer": "hillshade",
+                        "filter": ["==", "level", 78],
+                        "paint": {
+                          "fill-color": "#216",
+                          "fill-opacity": {
+                            "stops": [[14, 0.06], [17, 0.01]]
+                          }
+                        },
+                        "paint.night": {
+                          "fill-color": "#216",
+                          "fill-opacity": {
+                            "stops": [[6, 0.15], [13, 0.2], [17, 0.01]]
+                          }
+                        }
+                      }, {
+                        "id": "hillshade_shadow_dark",
+                        "type": "fill",
+                        "source": "mapbox",
+                        "source-layer": "hillshade",
+                        "filter": ["==", "level", 67],
+                        "paint": {
+                          "fill-color": "#216",
+                          "fill-opacity": {
+                            "stops": [[14, 0.06], [17, 0.01]]
+                          }
+                        },
+                        "paint.night": {
+                          "fill-color": "#216",
+                          "fill-opacity": {
+                            "stops": [[6, 0.15], [13, 0.2], [17, 0.01]]
+                          }
+                        }
+                      }, {
+                        "id": "hillshade_shadow_extreme",
+                        "type": "fill",
+                        "source": "mapbox",
+                        "source-layer": "hillshade",
+                        "filter": ["==", "level", 56],
+                        "paint": {
+                          "fill-color": "#216",
+                          "fill-opacity": {
+                            "stops": [[14, 0.06], [17, 0.01]]
+                          }
+                        },
+                        "paint.night": {
+                          "fill-color": "#216",
+                          "fill-opacity": {
+                            "stops": [[6, 0.15], [13, 0.2], [17, 0.01]]
+                          }
+                        }
+                      },
+                      {
+                            "id": "contour_line_regular",
+                            "type": "line",
+                            "source": "mapbox",
+                            "source-layer": "contour",
+                            "filter": ["!=", "index", 5],
+                            "paint": {
+                              "line-color": "#f1ff00",
+                              "line-width": .5,
+                              "line-opacity": .5
+                                }
+                        },
+                      {
+                        "id": "1890",
+					    "source": "1890",
+					    "source-layer": "1800-1899",
+					    "paint": {
+					      "fill-color": "#22ecf0",
+                            "fill-opacity":1
+					    },
+                        "paint.y1900": {
+					      "fill-color": "#d7d4d4",
+                            "fill-opacity":.4
+					    },
+					    "type": "fill",
+                        "interactive":true
+					  },
+                      {
+                        "id": "1900",
+					    "source": "1900",
+					    "source-layer": "1900-1909",
+					    "paint": {
+					      "fill-color": "#22ecf0",
+                            "fill-opacity":1
+					    },
+                        "paint.y1900": {
+					      "fill-color": "#d7d4d4",
+                            "fill-opacity":.4
+					    },
+					    "type": "fill",
+                        "interactive":true
+					  },
+                      {
+                        "id": "1910",
+					    "source": "1910",
+					    "source-layer": "1910-1919",
+					    "paint": {
+					      "fill-color": "#19d1fd",
+                            "fill-opacity":1
+					    }, 
+                        "paint.y1910": {
+					      "fill-color": "#d7d4d4",
+                            "fill-opacity":.4
+					    },
+					    "type": "fill",
+                        "interactive":true
+					  },
+                   	  {
+                        "id": "1920",
+					    "source": "1920",
+					    "source-layer": "1920-1929",
+					    "paint": {
+					      "fill-color": "#14b1fd",
+                            "fill-opacity":1
+					    }, 
+                        "paint.y1920": {
+					      "fill-color": "#d7d4d4",
+                            "fill-opacity":.4
+					    },
+					    "type": "fill",
+                        "interactive":true
+					  },
+                   	  { 
+                        "id": "1930",
+					    "source": "1930",
+					    "source-layer": "1930-1939",
+					    "paint": {
+					      "fill-color": "#2c7fdb",
+                            "fill-opacity":1
+					    }, 
+                        "paint.y1930": {
+					      "fill-color": "#d7d4d4",
+                            "fill-opacity":.4
+					    },
+					    "type": "fill",
+                        "interactive":true
+					  },
+                     {
+                        "id": "1940", 
+					    "source": "1940",
+					    "source-layer": "1940-1949",
+					    "paint": {
+					      "fill-color": "#3d52bf",
+                            "fill-opacity":1
+					    }, 
+                        "paint.y1940": {
+					      "fill-color": "#d7d4d4",
+                            "fill-opacity":.4
+					    },
+					    "type": "fill",
+                        "interactive":true
+					  },
+                        {
+                        "id": "1950", 
+					    "source": "1950",
+					    "source-layer": "1950-1959",
+					    "paint": {
+					      "fill-color": "#6539b3",
+                            "fill-opacity":1
+					    },					    
+                        "paint.y1950": {
+					      "fill-color": "#d7d4d4",
+                            "fill-opacity":.4
+					    },
+					    "type": "fill",
+                        "interactive":true
+					  },
+                     {
+                        "id": "1960", 
+					    "source": "1960",
+					    "source-layer": "1960-1969",
+					    "paint": {
+					      "fill-color": "#a032b2",
+                            "fill-opacity":1
+					    }, 
+                        "paint.y1960": {
+					      "fill-color": "#d7d4d4",
+                            "fill-opacity":.4
+					    },
+					    "type": "fill",
+                        "interactive":true
+					  },
+                     {
+                        "id": "1970", 
+					    "source": "1970",
+					    "source-layer": "1970-1979",
+					    "paint": {
+					      "fill-color": "#d124a9",
+                            "fill-opacity":1
+					    }, 
+                        "paint.y1970": {
+					      "fill-color": "#d7d4d4",
+                            "fill-opacity":.4
+					    },
+					    "type": "fill",
+                        "interactive":true
+					  },
+                     {
+                        "id": "1980", 
+					    "source": "1980",
+					    "source-layer": "1980-1989",
+					    "paint": {
+					      "fill-color": "#fd4dab",
+                            "fill-opacity":1
+					    }, 
+                        "paint.y1980": {
+					      "fill-color": "#d7d4d4",
+                            "fill-opacity":.4
+					    },
+					    "type": "fill",
+                        "interactive":true
+					  },
+                     {
+                        "id": "1990", 
+					    "source": "1990",
+					    "source-layer": "1990-1999",
+					    "paint": {
+					      "fill-color": "#fea7d4",
+                            "fill-opacity":1
+					    }, 
+                        "paint.y1990": {
+					      "fill-color": "#d7d4d4",
+                            "fill-opacity":.4
+					    },
+					    "type": "fill",
+                        "interactive":true
+					  },                 
+                      {
+                        "id": "2000", 
+					    "source": "2000",
+					    "source-layer": "2000-2009",
+					    "paint": {
+					      "fill-color": "#ff7911",
+                            "fill-opacity": 1
+					    }, 
+                        "paint.y2000": {
+                          "fill-color": "#d7d4d4",
+					      "fill-opacity": .4
+					    },
+					    "type": "fill",
+                        "interactive":true
+					  },
+                     {
+                        "id": "NODATE", 
+					    "source": "NODATE",
+					    "source-layer": "NODATE",
+					    "paint": {
+					      "fill-color": "#d7d4d4",
+                            "fill-opacity":.4    
+					    },"paint.ynodata": {
+					      "fill-opacity": .4
+					    },
+					    "type": "fill",
+                        "interactive":true
+					  },
+                      {
+                        "id": "place_label_city_l",
+                        "type": "symbol",
+                        "source": "mapbox",
+                        "source-layer": "place_label",
+                        "maxzoom": 14,
+                        "filter": ["all", ["==", "type", "city"], ["<=", "scalerank", 3], ["==", "$type", "Point"]],
+                        "layout": {
+                          "text-field": "{name_en}",
+                          "text-font": "Lato Black Italic",
+                          "text-max-size": 60,
+                          "text-max-width": 8
+                        },
+                        "paint": {
+                          "text-color": "#FFF",
+                          "text-size": {
+                            "stops": [[4, 11], [10, 60]]
+                          }
+                        }
+                      }, {
+                        "id": "place_label_city_s",
+                        "type": "symbol",
+                        "source": "mapbox",
+                        "source-layer": "place_label",
+                        "maxzoom": 14,
+                        "filter": ["all", ["==", "type", "city"], ["!in", "scalerank", 0, 1, 2, 3], ["==", "$type", "Point"]],
+                        "layout": {
+                          "text-field": "{name_en}",
+                          "text-font": "Lato Black Italic",
+                          "text-max-size": 40,
+                          "text-max-width": 8
+                        },
+                        "paint": {
+                          "text-color": "#FFF",
+                          "text-size": {
+                            "stops": [[4, 10], [14, 40]]
+                          }
+                        }},
+
+                                          {
+                        "id": "place_label_town",
+                        "type": "symbol",
+                        "source": "mapbox",
+                        "source-layer": "place_label",
+                        "minzoom": 7,
+                        "maxzoom": 16,
+                        "filter": ["all", ["==", "type", "town"], ["==", "$type", "Point"]],
+                        "layout": {
+                          "text-field": "{name_en}",
+                          "text-font": "Lato Black Italic",
+                          "text-max-size": 30,
+                          "text-max-width": 8
+                        },
+                        "paint": {
+                          "text-color": "#FFF",
+                          "text-size": {
+                            "base": 1.1,
+                            "stops": [[9, 12], [15, 30]]
+                          }
+                        }
+                      }
+				  ]
+			};
+
+            
+mapboxgl.accessToken = 'pk.eyJ1IjoiY3J1emluNzN2dyIsImEiOiI3RDdhUi1NIn0.jaEqREZw7QQMRafKPNBdmA';
+var map = new mapboxgl.Map({
+  container: 'map', // container id
+  style: mapStyle, //stylesheet location
+  center: [34.0267,-118.2621], // starting position
+  zoom: 12, // starting zoom
+  minZoom: 12,
+  hash: true
+});
+
+map.on('mousemove', function(e) {
+      map.featuresAt(e.point, {radius: 5}, function(err, features) {
+          if (err) throw err;
+          document.getElementById('builtbox').innerHTML = features[0].properties.address+" was built in "+features[0].properties.YearBuilt;
+      });
+  });
+
+//Click Functionality
+/*
+map.on('click', function(e) {
+      map.featuresAt(e.point, {radius: 5}, function(err, features) {
+          alert(features[0].properties.address+" was built in "+features[0].properties.YearBuilt);
+          if (err) throw err;
+          document.getElementById('builtbox').innerHTML = features[0].properties.address+" was built in "+features[0].properties.YearBuilt;
+      });
+  });
+*/
+        
+    
+        
+var yearArray= ["y1900","y1910","y1920","y1930","y1940","y1950","y1960","y1970","y1980","y1990","y2000","ynodata"];
+var yearLength = yearArray.length;
+var tx;        
+function animate2(){
+    tx=1000;
+    for (var i = 0; i < yearLength; i++){
+            if (map.hasClass(yearArray[i])) {
+                animate3(yearArray[i]);
+                tx=tx+1000;
+                } else {
+                map.addClass(yearArray[i]);
+                $("#"+yearArray[i]).css('opacity', '.5');
+                }
+                };
+    };
+        
+function animate3(i){
+console.log(tx)
+setTimeout(function(){
+    map.removeClass(i)
+    $("#"+i).removeAttr('style');    
+},tx);
+}        
+
+
+
+	</script>
+</body>
+</html>
